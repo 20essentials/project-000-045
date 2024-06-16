@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #222;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  transition: .6s;
+  width: fit-content;
+  height: fit-content;
+
+  * {
+    pointer-events: none;
+  }
+}
+
+.glowing {
+  display: flex;
+
+  span {
+    --size: 40px;
+    width: var(--size);
+    height: var(--size);
+    border: 2px solid currentColor;
+    color: #fff4;
+    margin-inline: -1px;
+    box-shadow: inset 0 2px 9px 3px currentColor;
+    animation-delay: calc(var(--d) * .1s);
+    border-right-color: transparent;
+  }
+
+  span:nth-child(even) {
+    animation: animate 2s linear infinite;
+  }
+
+  span:nth-child(odd) {
+    animation: animate2 2s linear infinite;
+  }
+
+  span:last-child {
+    border-right-color: currentColor;
+  }
+}
+
+.glowing-2 {
+  span {
+
+    animation-delay: calc(var(--d) * .2s);
+  }
+
+  span:nth-child(odd) {
+    animation: animate 2s linear infinite;
+  }
+
+  span:nth-child(even) {
+    animation: animate2 2s linear infinite;
+  }
+}
+
+@keyframes animate {
+  0% {
+    color: #ff0;
+  }
+
+  25% {
+    color: #f00;
+  }
+
+  50% {
+    color: #f0f;
+  }
+
+  75% {
+    color: #0f0;
+  }
+
+  100% {
+    color: #00f;
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    color: #0ff;
+  }
+
+  25% {
+    color: mediumseagreen;
+  }
+
+  50% {
+    color: orange;
+  }
+
+  75% {
+    color: violet;
+  }
+
+  100% {
+    color: cadetblue;
+  }
+}
